@@ -1,7 +1,8 @@
 import pandas as pd
+import os
 
 def extract():
-    # Pretend this is Oracle data
+    os.makedirs("data", exist_ok=True)  # make sure 'data' folder exists
     data = {
         "id": [1, 2, 3],
         "name": ["Alice ", " Bob", "Charlie"],
