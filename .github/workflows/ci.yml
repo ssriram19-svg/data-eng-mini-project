@@ -1,0 +1,30 @@
+name: CI/CD Pipeline
+
+on: [push, pull_request]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+
+      - name: Install dependencies
+        run: pip install pandas pytest
+
+      - name: Run Extract
+        run: python extract.py
+
+      - name: Run Transform
+        run: python transform.py
+
+      - name: Run Load
+        run: python load.py
+
+      - name: Run Tests
+        run: pytest tests/
