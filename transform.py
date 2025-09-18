@@ -1,13 +1,13 @@
 import pandas as pd
 
 def transform():
-    # Read extracted data
-    df = pd.read_csv("data/oracle_customers.csv")  # or extracted.csv if that’s your file
+    # Read from the file created by extract.py
+    df = pd.read_csv("data/extracted.csv")
 
-    # Simple transformation: keep only name + country
+    # Simple transformation: select only name and country
     df = df[["name", "country"]]
 
-    # Save transformed file
+    # Write transformed output
     df.to_csv("data/transformed.csv", index=False)
 
 if __name__ == "__main__":
