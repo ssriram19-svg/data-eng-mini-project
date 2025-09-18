@@ -1,13 +1,14 @@
 import pandas as pd
 
 def transform():
-    df = pd.read_csv("data/extracted.csv")
-    # Trim whitespace in names
-    df["name"] = df["name"].str.strip()
-    # Add a column with 10% tax
-    df["purchase_with_tax"] = df["purchase"] * 1.1
+    # Read extracted data
+    df = pd.read_csv("data/oracle_customers.csv")  # or extracted.csv if that’s your file
+
+    # Simple transformation: keep only name + country
+    df = df[["name", "country"]]
+
+    # Save transformed file
     df.to_csv("data/transformed.csv", index=False)
-    return df
 
 if __name__ == "__main__":
     transform()
