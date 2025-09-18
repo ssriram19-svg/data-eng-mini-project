@@ -1,0 +1,15 @@
+import pandas as pd
+
+def extract():
+    # Pretend this is Oracle data
+    data = {
+        "id": [1, 2, 3],
+        "name": ["Alice ", " Bob", "Charlie"],
+        "purchase": [120, 250, 300]
+    }
+    df = pd.DataFrame(data)
+    df.to_csv("data/extracted.csv", index=False)
+    return df
+
+if __name__ == "__main__":
+    extract()
